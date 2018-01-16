@@ -80,6 +80,19 @@ describe("Response Picker", function() {
      
      expect(responseFromNewResponsePicker).toEqual(resposneFromOldResponsePicker);
   });
+  
+  it("should behave in a sensible way when there are only two responses in the list",
+    function() {
+     let trackingObject = {};
+     let responsePool = [`Hello world`, `what is the color`];
+     let responsePicker = new RepsonsePicker(trackingObject);
+     let responses = [];
+     
+     for(let i = 0;i < 8;i++) {
+        responses.push(responsePicker.pickResponse(responsePool));
+     }
+     expect(countMaxDuplicates(responses)).toEqual(3);
+  });
 });
 
 function countMaxDuplicates(listOfStrings) {
