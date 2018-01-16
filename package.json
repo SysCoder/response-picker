@@ -1,5 +1,5 @@
 {
-  "name": "voice-response-picker",
+  "name": "response-picker",
   "version": "1.0.0",
   "description": "Manages the responses to be sent back to the user. Instead of picking randomly from a list of responses, this module will remember previous responses given and avoid them until all responses have been picked.",
   "main": "index.js",
@@ -18,5 +18,14 @@
   "license": "MIT",
   "dependencies": {
     "shorthash": "0.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SysCoder/response-picker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SysCoder/response-picker/issues"
+  },
+  "homepage": "https://github.com/SysCoder/response-picker#readme"
 }
