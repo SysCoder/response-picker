@@ -1,0 +1,22 @@
+{
+  "name": "voice-response-picker",
+  "version": "1.0.0",
+  "description": "Manages the responses to be sent back to the user. Instead of picking randomly from a list of responses, this module will remember previous responses given and avoid them until all responses have been picked.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "actions",
+    "on",
+    "google",
+    "alexa",
+    "responses",
+    "picker"
+  ],
+  "author": "Marcellus Pelcher",
+  "license": "MIT",
+  "dependencies": {
+    "shorthash": "0.0.2"
+  }
+}
