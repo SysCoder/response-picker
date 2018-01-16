@@ -93,6 +93,19 @@ describe("Response Picker", function() {
      }
      expect(countMaxDuplicates(responses)).toEqual(3);
   });
+  
+  it("should behave in a sensible way when there are only one response in the list",
+    function() {
+     let trackingObject = {};
+     let responsePool = [`Hello world`];
+     let responsePicker = new RepsonsePicker(trackingObject);
+     let responses = [];
+     
+     for(let i = 0;i < 8;i++) {
+        responses.push(responsePicker.pickResponse(responsePool));
+     }
+     expect(countMaxDuplicates(responses)).toEqual(7);
+  });
 });
 
 function countMaxDuplicates(listOfStrings) {

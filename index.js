@@ -7,6 +7,9 @@ class RepsonsePicker {
   }
   
   pickResponse(prompts) {
+    if (prompts.length === 1) {
+      return prompts[0];
+    }
     let promptHash = hashGen.unique(prompts.toString());
     
     // Initialize data object for list of prompts.
