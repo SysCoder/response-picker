@@ -106,6 +106,18 @@ describe("Response Picker", function() {
      }
      expect(countMaxDuplicates(responses)).toEqual(7);
   });
+    
+  it("should throw an exception with an empty list",
+    function() {
+     let responsePicker = new RepsonsePicker({});
+     expect(() => responsePicker.pickResponse([])).toThrow();
+  });
+  
+  it("should throw an exception with an array",
+    function() {
+     let responsePicker = new RepsonsePicker({});
+     expect(() => responsePicker.pickResponse("house")).toThrow();
+  });
 });
 
 function countMaxDuplicates(listOfStrings) {

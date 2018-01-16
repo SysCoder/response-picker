@@ -7,9 +7,13 @@ class RepsonsePicker {
   }
   
   pickResponse(prompts) {
+    if (!(prompts instanceof Array) || prompts.length < 1) {
+      throw new Error("Input must be an array with positive length");
+    }
     if (prompts.length === 1) {
       return prompts[0];
     }
+    
     let promptHash = hashGen.unique(prompts.toString());
     
     // Initialize data object for list of prompts.
