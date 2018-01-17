@@ -1,7 +1,7 @@
 describe("Response Picker", function() {
   var RepsonsePicker = require('../index').RepsonsePicker;
 
-  it("should not repeat responses",
+  it("should not repeat responses when triggered the same amount of times as the list of elements",
     function() {
      let trackingObject = {};
      let responsePool = [`Hello world`, `what is the color`, `computer`,
@@ -16,6 +16,31 @@ describe("Response Picker", function() {
 
      expect(countMaxDuplicates(responses)).toEqual(0);
   });
+  
+  it("should not produce word consecutively",
+    function() {
+     let trackingObject = {};
+     let responsePool = [`Hello world`, `what is the color`, `computer`,
+         `meltdown`, `spectre`, `computer chips`, `processor`,
+         `virus`, `hacker`, `vulnerability`];
+     let responsePicker = new RepsonsePicker(trackingObject);
+     let responses = [];
+     
+     for(let i = 0;i < 100;i++) {
+        responses.push(responsePicker.pickResponse(responsePool));
+     }
+
+     expect(hasDuplicatesNextToEachOther(responses)).toEqual(false);
+  });
+  
+  function hasDuplicatesNextToEachOther(responses) {
+      for (let i = 1;i < responses.length;i++) {
+          if (responses[i] === responses[i - 1]) {
+              return true;
+          }
+      }
+      return false;
+  }
   
   it("should repeat all responses at most 5 times with a 4 element array and invoked 20 times",
     function() {
