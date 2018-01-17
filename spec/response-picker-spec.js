@@ -1,5 +1,5 @@
 describe("Response Picker", function() {
-  var RepsonsePicker = require('../index').RepsonsePicker;
+  var ResponsePicker = require('../index').ResponsePicker;
 
   it("should not repeat responses when triggered the same amount of times as the list of elements",
     function() {
@@ -7,7 +7,7 @@ describe("Response Picker", function() {
      let responsePool = [`Hello world`, `what is the color`, `computer`,
          `meltdown`, `spectre`, `computer chips`, `processor`,
          `virus`, `hacker`, `vulnerability`];
-     let responsePicker = new RepsonsePicker(trackingObject);
+     let responsePicker = new ResponsePicker(trackingObject);
      let responses = [];
      
      for(let i = 0;i < 10;i++) {
@@ -23,7 +23,7 @@ describe("Response Picker", function() {
      let responsePool = [`Hello world`, `what is the color`, `computer`,
          `meltdown`, `spectre`, `computer chips`, `processor`,
          `virus`, `hacker`, `vulnerability`];
-     let responsePicker = new RepsonsePicker(trackingObject);
+     let responsePicker = new ResponsePicker(trackingObject);
      let responses = [];
      
      for(let i = 0;i < 100;i++) {
@@ -47,7 +47,7 @@ describe("Response Picker", function() {
      let trackingObject = {};
      let responsePool = [`Hello world`, `what is the color`, `computer`,
          `meltdown`];
-     let responsePicker = new RepsonsePicker(trackingObject);
+     let responsePicker = new ResponsePicker(trackingObject);
      let responses = [];
      
      for(let i = 0;i < 100;i++) {
@@ -62,7 +62,7 @@ describe("Response Picker", function() {
      let responsePoolHello = [`Hello there`, `Hello`, `Hi`, `Howdy`, `Hey`];
      let responsePoolGoodbye = [`Goodbye`, `Bye`, `Bye Bye`, `See you later!`,
          `Chao`];
-     let responsePicker = new RepsonsePicker(trackingObject);
+     let responsePicker = new ResponsePicker(trackingObject);
      let helloResponses = [];
      let goodbyeResponses = [];
      
@@ -78,7 +78,7 @@ describe("Response Picker", function() {
     function() {
      let trackingObject = {};
      let responsePoolChinese = [`雜碎`, `炒`, `圍棋`, `茄汁`, `唔可以`];
-     let responsePicker = new RepsonsePicker(trackingObject);
+     let responsePicker = new ResponsePicker(trackingObject);
      let chineseResponses = [];
      
      for(let i = 0;i < 5;i++) {
@@ -87,18 +87,18 @@ describe("Response Picker", function() {
      expect(countMaxDuplicates(chineseResponses)).toEqual(0);
   });
   
-  it("should give the tracking object and be able to use the same object in another RepsonsePicker instance",
+  it("should give the tracking object and be able to use the same object in another ResponsePicker instance",
     function() {
      let trackingObject = {};
      let responsePoolHello = [`Hello there`, `Hello`, `Hi`, `Howdy`, `Hey`];
-     let responsePicker = new RepsonsePicker(trackingObject);
+     let responsePicker = new ResponsePicker(trackingObject);
      let helloResponses = [];
      
      for(let i = 0;i < 4;i++) {
         helloResponses.push(responsePicker.pickResponse(responsePoolHello));
      }
      let newTrackingOjbect = JSON.parse(JSON.stringify(trackingObject));
-     let newResponsePicker = new RepsonsePicker(newTrackingOjbect);
+     let newResponsePicker = new ResponsePicker(newTrackingOjbect);
      
      let responseFromNewResponsePicker = newResponsePicker.pickResponse(responsePoolHello);
      let resposneFromOldResponsePicker = responsePicker.pickResponse(responsePoolHello);
@@ -110,7 +110,7 @@ describe("Response Picker", function() {
     function() {
      let trackingObject = {};
      let responsePool = [`Hello world`, `what is the color`];
-     let responsePicker = new RepsonsePicker(trackingObject);
+     let responsePicker = new ResponsePicker(trackingObject);
      let responses = [];
      
      for(let i = 0;i < 8;i++) {
@@ -123,7 +123,7 @@ describe("Response Picker", function() {
     function() {
      let trackingObject = {};
      let responsePool = [`Hello world`];
-     let responsePicker = new RepsonsePicker(trackingObject);
+     let responsePicker = new ResponsePicker(trackingObject);
      let responses = [];
      
      for(let i = 0;i < 8;i++) {
@@ -134,13 +134,13 @@ describe("Response Picker", function() {
     
   it("should throw an exception with an empty list",
     function() {
-     let responsePicker = new RepsonsePicker({});
+     let responsePicker = new ResponsePicker({});
      expect(() => responsePicker.pickResponse([])).toThrow();
   });
   
   it("should throw an exception with an array",
     function() {
-     let responsePicker = new RepsonsePicker({});
+     let responsePicker = new ResponsePicker({});
      expect(() => responsePicker.pickResponse("house")).toThrow();
   });
 });

@@ -1,7 +1,7 @@
 'use strict';
 var hashGen = require("shorthash");
 
-class RepsonsePicker {
+class ResponsePicker {
   constructor(trackingObject) {
     this.trackingObject = trackingObject;
   }
@@ -69,4 +69,4 @@ function unionFilters(firstFilter, secondFilter) {
   return firstFilter.map((x, i) => (x || secondFilter[i]) ? 1 : 0);
 }
 
-exports.RepsonsePicker = RepsonsePicker;
+exports.ResponsePicker = ResponsePicker;
