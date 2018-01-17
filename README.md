@@ -32,11 +32,11 @@ Response Picker prevents this by keeping track of the last response and exaustin
 
 ### Add Response Picker to your code:
 ```
-var RepsonsePicker = require('response-picker').RepsonsePicker;
+var ResponsePicker = require('response-picker').ResponsePicker;
 
 let responses = ["Hi", "Hello", "Hey"];
 let trackerObject = {};
-let responsePicker = new RepsonsePicker(trackerObject);
+let responsePicker = new ResponsePicker(trackerObject);
 
 for (let i = 0;i < 15;i++) {
     console.log(responsePicker.pickResponse(responses));
