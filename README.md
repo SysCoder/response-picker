@@ -2,7 +2,8 @@
 
 ## Summary
 Response Picker picks and keeps track of previous responses given to the user from a list.
-When building a VUI, some responses you may want to vary like greetings and exits.
+When building a VUI, some responses you may want to vary like greetings and exits. This tool is framework agnostic.
+This should work with Actions on Google, Alexa, and any conversational framework that works with Javascript.
 
 ## Example
 With the following list: ["Hello", "Hi", "Hey", "Howdy"]
