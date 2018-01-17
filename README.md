@@ -23,3 +23,23 @@ Response Picker - Random with memory:
 
 Just using random, you have a 1 in 4 chance of following up a subsequent response with the same response.
 Response Picker prevents this by keeping track of the last response and exausting the list of responses before repeating a response.  
+
+## Usage
+### Install using NPM:
+
+```npm install --save response-picker```
+
+### Add Response Picker to your code:
+```
+var RepsonsePicker = require('response-picker').RepsonsePicker;
+
+let responses = ["Hi", "Hello", "Hey"];
+let trackerObject = {};
+let responsePicker = new RepsonsePicker(trackerObject);
+
+for (let i = 0;i < 15;i++) {
+    console.log(responsePicker.pickResponse(responses));
+}
+
+console.log("Tracker object: " + JSON.stringify(trackerObject));
+```
